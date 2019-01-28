@@ -31,7 +31,6 @@ public class HttpServer451 {
                 String urlInputLine ="";
                 System.out.println("Received: " + inputLine);
                 if (inputLine.contains("html")) {
-
                     while (!urlInputLine.endsWith(".html") && i < inputLine.length()) {
                         urlInputLine += (inputLine.charAt(i++));
                     }
@@ -44,7 +43,6 @@ public class HttpServer451 {
                         while (readerFile.ready()) {
                             out.println(readerFile.readLine());
                         }
-
                     }catch (FileNotFoundException e) {
                         //out.println("HTTP/2.0 404 Not found.");
                         //out.println("Content-Type: text/html");

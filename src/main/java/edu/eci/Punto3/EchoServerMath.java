@@ -27,20 +27,22 @@ public class EchoServerMath {
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         String inputLine, outputLine;
+        String funcion = "cos";
         while ((inputLine = in .readLine()) != null) {
-            System.out.println("Mensaje: "+inputLine);
-            StringTokenizer stk = new StringTokenizer(inputLine);
-            int tokens = stk.countTokens();
-            String fun = stk.nextToken();
-            double val = Double.parseDouble(stk.nextToken());
-            boolean funBool = false;
+
+
             double trigonometria = 0.0;
-            if(fun.equals("fun:sin")){
-                trigonometria = Math.sin(val);
-            }else if(fun.equals("fun:cos")){
-                trigonometria = Math.cos(val);
-            }else{
-                trigonometria =  Math.tan(val);
+            if(!inputLine.startsWith("fun")){
+                try{
+                    double number = Double.parseDouble(inputLine);
+                }catch(Exception e){
+                }
+            }else if(inputLine.equals("fun:sin")){
+                funcion = "sin";
+            }else if(inputLine.equals("fun:cos")){
+                funcion = "cos";
+            }else if(inputLine.equals("fun:tan"){
+                funcion = "tan";
             }
             inputLine = Double.toString(trigonometria);
             System.err.println(trigonometria);
@@ -52,4 +54,15 @@ public class EchoServerMath {
         clientSocket.close();
         serverSocket.close();
     }
+
+    static double operacion(double number,String op){
+        if(op.equals("sin")){
+            return Math.sin(number);
+        }else if (op.equals("cos")){
+            return Math.cos(number);
+        }else{
+            return Math.tan(number);
+        }
+    }
+
 }

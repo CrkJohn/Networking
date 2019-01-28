@@ -1,4 +1,4 @@
-package edu.eci;
+package edu.eci.Punto1;
 
 
 import java.io.*;

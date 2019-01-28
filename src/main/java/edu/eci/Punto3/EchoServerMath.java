@@ -1,4 +1,4 @@
-package edu.eci;
+package edu.eci.Punto3;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package edu.eci;
+package edu.eci.Punto4;
 
 import java.net.*;
 import java.io.*;
@@ -22,24 +22,26 @@ public class HttpServer {
         }
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
         String inputLine, outputLine;
-        while ((inputLine = in .readLine()) != null) {
+        while ((inputLine = in.readLine()) != null) {
             System.out.println("Received: " + inputLine);
-            URL url = new URL(inputLine);
-            BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
-            String read = null;
-            while((read = br.readLine()) != null){
-
-            }
-
-            if (! in .ready()) {
+            if (!in.ready()) {
                 break;
             }
         }
-        outputLine = "<!DOCTYPE html>" + "<html>" + "<head>" + "<meta charset=\"UTF-8\">" + "<title>Title of the document</title>\n" + "</head>" + "<body>" + "My Web Site" + "</body>" + "</html>" + inputLine;
+        out.println("HTTP/1.1 200 OK");
+        out.println("Content-Type: text/html");
+        out.println("\r\n");
+        outputLine = "<!DOCTYPE html>" + "<html>" + "<head>" + "<meta charset=\"UTF-8\">"
+                + "<title>Title of the document</title>\n" + "</head>" + "<body>" + "My Web Site" + "</body>"
+                + "</html>" + inputLine;
+//		BufferedWriter bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir")+"//resultado.html"));
+//		bw.write(outputLine);
+//		bw.close();
         out.println(outputLine);
-        out.close(); in .close();
+
+        out.close();
+        in.close();
         clientSocket.close();
         serverSocket.close();
     }

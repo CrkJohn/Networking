@@ -23,11 +23,14 @@ public class EchoServer {
         String inputLine, outputLine;
         while ((inputLine = in .readLine()) != null) {
             System.out.println("Mensaje: "+inputLine);
-            outputLine = "Respuesta" + inputLine;
+            int number = Integer.parseInt(inputLine);
+            number *= number;
+            outputLine = "Respuesta: " + Integer.toString(number);
+            
             out.println(outputLine);
             if (outputLine.equals("Respuestas: Bye.")) break;
         }
-        out.close(); in .close();
+        out.close(); in.close();
         clientSocket.close();
         serverSocket.close();
     }

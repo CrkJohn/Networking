@@ -32,12 +32,14 @@ public class HttpServer {
         out.println("HTTP/1.1 200 OK");
         out.println("Content-Type: text/html");
         out.println("\r\n");
-        outputLine = "<!DOCTYPE html>" + "<html>" + "<head>" + "<meta charset=\"UTF-8\">"
-                + "<title>Title of the document</title>\n" + "</head>" + "<body>" + "My Web Site" + "</body>"
+        outputLine = "<!DOCTYPE html>" + "<html>" + "<head>" +
+        			"<meta charset=\"UTF-8\">"
+                + "<title>Title of the document</title>\n" + 
+        			"</head>" + "<body>" + "My Web Site" + "</body>"
                 + "</html>" + inputLine;
-//		BufferedWriter bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir")+"//resultado.html"));
-//		bw.write(outputLine);
-//		bw.close();
+		BufferedWriter bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir")+"//resultado.html"));
+		bw.write(outputLine);
+		bw.close();
         out.println(outputLine);
 
         out.close();

@@ -29,25 +29,24 @@ public class EchoServerMath {
         String inputLine, outputLine;
         String funcion = "cos";
         while ((inputLine = in .readLine()) != null) {
-
-
-            double trigonometria = 0.0;
-            if(!inputLine.startsWith("fun")){
-                try{
-                    double number = Double.parseDouble(inputLine);
-                }catch(Exception e){
-                }
-            }else if(inputLine.equals("fun:sin")){
+            if(inputLine.equals("fun:sin")){
                 funcion = "sin";
+                out.println("Respuesta: Funcion cambiada a sin");
             }else if(inputLine.equals("fun:cos")){
                 funcion = "cos";
-            }else if(inputLine.equals("fun:tan"){
+                out.println("Respuesta: Funcion cambiada a cos");
+            }else if(inputLine.equals("fun:tan")){
                 funcion = "tan";
+                out.println("Respuesta: Funcion cambiada a tan");
+            }else{
+                try{
+                    double number = Double.parseDouble(inputLine);
+                    out.println("Respuesta, resultado: "+operacion(number,funcion));
+                }catch(Exception e){
+                }
             }
-            inputLine = Double.toString(trigonometria);
-            System.err.println(trigonometria);
-            outputLine = "Respuesta " + inputLine;
-            out.println(outputLine);
+            //outputLine = "Respuesta " + inputLine;
+            //out.println(outputLine);
 
         }
         out.close(); in .close();

@@ -11,6 +11,7 @@ Arquitectura de software
 - [Juan Camilo Velandia](https://github.com/jcamilovelandiab)
 ------------
 
+En el presente trabajo se adjuntan fotos que comprueban la realización de los ejercicios propuestos en éste laboratorio.
 
 ## EJERCICIO 1
 ### Escriba un programa en el cual usted cree un objeto URL e imprima en pantalla cada uno de los datos que retornan los 8 métodos de la sección anterior.
